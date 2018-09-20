@@ -1,0 +1,33 @@
+<div class="row">
+
+  <div class="lesdeux" class="col-md-4">
+
+      <div class="lepremier">
+           <img (click)="startFabrication()" class="round" [attr.src]="serverImage + product?.logo"   />
+       </div>
+<br>
+      <div class="lesecond">
+           <span id="quantite">{{product?.quantite}}</span>
+      </div>
+  </div>
+
+  <div class="col-md-8 progress" #bar> </div>  
+
+
+<div class="col-md-8">
+  <div class="col-md-5">
+      <span id="productCroissance"> {{product?.croissance}}</span>
+  </div>
+  <div class="col-md-5">
+      <div *ngIf="product?.cout<=_money && product?.quantite>0" >
+          <button (click)="onBuy()"  class="button" type="button" [innerHTML]="'x' + product?.quantite + ' | ' +  (product?.cout| bigvalue) + '$'"></button>
+      </div>
+      <div *ngIf="product?.cout>_money || product?.quantite==0" >
+          <button (click)="onBuy()" disabled class="button" type="button" [innerHTML]="'x' + product?.quantite + ' | ' +  (product?.cout | bigvalue) + '$'"></button>
+       </div>
+  </div>
+  <div class="col-md-2">  
+      <span id="productTime"> {{product?.timeleft}}</span>  
+  </div>    
+  </div>    
+</div>

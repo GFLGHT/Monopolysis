@@ -1,0 +1,49 @@
+.menu{
+    background-color: yellow;
+    border: none;
+    border-radius: 20px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 15px;
+    width: 200px;
+    height: 100px;
+}
+
+.logo{
+    width: 200px;
+    height: 100px;
+}
+
+.prd{
+    margin-bottom: 200px;
+}
+
+.butt{
+    background-color: red;
+    border: none;
+    border-radius: 20px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 15px;
+    width: 100px;
+    height: 30px;
+}
+
+.worldname{
+    color: white;
+    font-size: 50px;
+}
+
+.text {
+    background-color: blue;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: 50px;
+}

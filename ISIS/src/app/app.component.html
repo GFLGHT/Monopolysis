@@ -1,0 +1,91 @@
+<div class="container-fluid">
+        <div class="row">
+            <div class="lesdeux" class="col-md-5">
+    
+                <div class="lepremier">
+                    <img class="logo" [attr.src]="server + image + world.logo" />
+                </div>
+    
+            </div>
+    
+            <div class="text">
+                <div class="col-md-3">
+                    $
+                    <span [innerHtml]="world.money | bigvalue  "> </span>
+                </div>
+            </div>
+    
+            <div class="col-md-1">
+                <br>
+                <button class="butt" type="button" (click)="defineNext()"> Buy {{ this.qtmulti }} </button>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-2">
+                    <div>
+                        <button class="menu">Unlocks</button>
+                    </div>
+                    <br/>
+                    <div>
+                        <button class="menu">Cash Upgrades</button>
+                    </div>
+                    <br/>
+                    <div>
+                        <button class="menu">Angel Upgrades</button>
+                    </div>
+                    <br/>
+                    <div>
+                        <button class="menu" type="button" data-toggle="modal" (click)="managersModal.show()" id="Managers">
+                            <span class="badge">{{badgeManagers}}</span> Managers</button>
+                    </div>
+                    <br/>
+                    <div>
+                        <button class="menu">Investors</button>
+                    </div>
+            </div>
+    
+            <app-product class="prd" *ngIf="world.products.product[0]" (notifyProduction)="onProductionDone($event)" (notifyMoney)="onBuyDone($event)"
+                    [qtmulti]="qtmulti" [money]="world.money" [prod]="world.products.product[0]" class="product col-md-4"> </app-product>
+            <app-product class="prd" (notifyProduction)="onProductionDone($event)" (notifyMoney)="onBuyDone($event)" [qtmulti]="qtmulti" [money]="world.money"
+                    [prod]="world.products.product[1]" class="product col-md-4"> </app-product>
+            <app-product class="prd" (notifyProduction)="onProductionDone($event)" (notifyMoney)="onBuyDone($event)" [qtmulti]="qtmulti" [money]="world.money"
+                    [prod]="world.products.product[2]" class="product col-md-4"> </app-product>
+            <app-product class="prd" (notifyProduction)="onProductionDone($event)" (notifyMoney)="onBuyDone($event)" [qtmulti]="qtmulti" [money]="world.money"
+                    [prod]="world.products.product[3]" class="product col-md-4"> </app-product>
+        </div>
+    
+        <app-modal #managersModal>
+                <div class="app-modal-header">
+                    <h4 class="modal-title">Managers make you feel better !</h4>
+                </div>
+                <div class="app-modal-body">
+                    <div class="col-xs-12" *ngFor="let manager of world.managers.pallier">
+                        <div *ngIf="!manager.unlocked">
+                            <div class="col-xs-4">
+                                <img class="round" [attr.src]="server + image + manager.logo" />
+                            </div>
+                            <div class="col-xs-4">
+                                <h3>{{manager.name}}</h3>
+                                <p>{{world.products.product[(manager.idcible)-1].name}}</p>
+                                <p>{{manager.seuil}}$</p>
+                            </div>
+                            <div class="col-xs-4">
+                                <div *ngIf="manager.seuil<=world.money">
+                                    <button (click)="hireManager(manager)" type="button"> Hire ! </button>
+                                </div>
+                                <div *ngIf="manager.seuil>world.money">
+                                    <button disabled type="button"> Hire ! </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="app-modal-footer">
+                    <button type="button" class="btn btn-default" (click)="managersModal.hide()">Close</button>
+                </div>
+        </app-modal>
+    
+    </div>

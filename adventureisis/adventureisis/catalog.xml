@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/D:/Users/jbouysso/Documents/ISIS%20FIA-4/SOA/PROJET%20CAPITALIST/adventureisis/adventureisis/../../adventureISISServer/src/main/resources/worldSchema.xsd" uri="src/main/resources/jaxb/jaxb/worldSchema.xsd"/>
+</catalog>
